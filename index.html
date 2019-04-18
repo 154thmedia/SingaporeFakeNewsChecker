@@ -4,26 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:url"
-        content="https://154thmedia.github.io/SingaporeFakeNewsChecker" />
+    <meta property="og:url" content="https://154thmedia.github.io/SingaporeFakeNewsChecker" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Singapore Fake News Checker" />
     <meta property="og:description" content="We check if the news is fake news" />
-    <meta property="og:image"
-        content="https://154thmedia.github.io/SingaporeFakeNewsChecker/img/logo.jpg" />
+    <meta property="og:image" content="https://154thmedia.github.io/SingaporeFakeNewsChecker/img/logo.jpg" />
     <title>Singapore Fake News Checker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css" />
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: url('img/shiping.jpg');
+            background-size: cover;
+        }
+
+        div.pretty {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 2px;
+            padding: 20px 10px;
+            margin-top: 150px;
+            min-height: 450px;
+        }
+
+        input.input-xl {
+            height: 80px;
+            padding: 10px 16px;
+            font-size: 45px;
+            line-height: 1.3333333;
+            border-radius: 6px;
+        }
+
+        .results {
+            font-size: 28px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .chunk {
+            text-shadow: 1px 2px #ffffff;
+            font-size: 12pt;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h4>Singapore Fake News Checker</h4>
+    <div class="pretty">
+        <div id="app" class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <h1>Singapore Fake News Checker</h1>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-xl" v-model="source" />
+                    </div>
+                    <button class="btn btn-primary btn-lg" @click="checkSource">Check Source</button>
+                    <div v-if="(message !== '')">
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="results" v-html="message"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <hr />
+                                <label>How it works</label>
+                                <p class="chunk"> We use an advanced machine learning and patent-pending technology to
+                                    determine if
+                                    the
+                                    reliability of the source based on a points based approach. It's too difficult to
+                                    explain
+                                    it here
+                                    so just try it to believe it. <br /> Disclaimer: Background photo from <a
+                                        href="https://pexels.com">Pexels</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.1/URI.min.js"></script>
+    <script src="js/ml.js"></script>
+    <script src="js/page.js"></script>
 </body>
 
 </html>
